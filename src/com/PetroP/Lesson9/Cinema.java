@@ -7,9 +7,14 @@ public class Cinema {
     static HashMap<Integer, List<Movie>> moviesByYear = new LinkedHashMap<>();
 
     public static void addMovie(Movie movie) {
-        List<Movie> movieList = new ArrayList<>();
-        movieList.add(movie);
-        moviesByYear.put(movie.getYear(), movieList);
+        if (moviesByYear.containsKey(movie.getYear())) {
+            List<Movie> movies = moviesByYear.get(movie.getYear());
+            movies.add(movie);
+        } else {
+            List<Movie> movies = new ArrayList<>();
+            movies.add(movie);
+            moviesByYear.put(movie.getYear(), movies);
+        }
     }
 
     public static void printFullMap() {
@@ -42,11 +47,17 @@ public class Cinema {
     }
 
     public static List<Movie> getMoviesTop10() {
+        List<Movie> allMovies = new ArrayList<>();
         List<Movie> moviesTop10 = new ArrayList<>();
-        for (List<Movie> movieOfYear : moviesByYear.values()) {
-            moviesTop10.addAll(movieOfYear);
+        for (List<Movie> list : moviesByYear.values()) {
+            allMovies.addAll(list);
         }
-        moviesTop10.sort(Comparator.comparing(Movie::getRating).reversed());
+        allMovies.sort(Comparator.comparing(Movie::getRating).reversed());
+        for (Movie allMovie : allMovies) {
+            if (moviesTop10.size() < 10) {
+                moviesTop10.add(allMovie);
+            }
+        }
         return moviesTop10;
     }
 }
