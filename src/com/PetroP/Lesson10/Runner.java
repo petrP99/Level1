@@ -1,26 +1,5 @@
 package com.PetroP.Lesson10;
 
-/*
-* Дан список студентов с полями:
-- Имя
-- Фамилия
-- Номер курса в университете
-- Список оценок за учебу
-*
-Преобразовать этот список студентов в ассоциативный массив, где ключом является номер курса, а значением:
-
-*1.  Средняя оценка студентов этого курса, количество оценок у которых больше 3-х
-
-*2.  Список студентов данного курса, но только с полями Имя и Фамилия.
-  Список должен быть отсортированы по этим двум полям
-
-3. Объект с двумя полями:
-- Отсортированный список студентов с пункта 2
-- Средняя оценка этих студентов
-
-Подумать, как ассоциативный массив можно было представить в коде в виде отсортированного - TreeMap*/
-
-
 import java.util.*;
 
 import static com.PetroP.Lesson10.Courses.*;
@@ -30,7 +9,7 @@ public class Runner {
     public static void main(String[] args) {
         Map<Courses, OptionalDouble> mapByCourseAndAverage = new HashMap<>();
         Map<Courses, List<String>> mapByFullName = new HashMap<>();
-        Map<Courses, Objects> mapByObjects = new HashMap<>();
+        List<String> sortedStudentList = new ArrayList<>();
 
 
         List<Student> studentsList = Arrays.asList(
@@ -48,13 +27,10 @@ public class Runner {
                 new Student("Albert", "Eintshtein", COURSE5, List.of(6, 8, 1, 8, 9, 3, 7, 3)));
 
 
-//        Helper.chooseByCourseAndAverage(studentsList, COURSE1, mapByCourseAndAverage);
-//        Helper.chooseByFullName(studentsList, COURSE5, mapByFullName);
-        Helper.chooseByObject(studentsList, COURSE1, mapByFullName);
-
+        Solution.chooseByCourseAndAverage(studentsList, COURSE1, mapByCourseAndAverage);
+        Solution.chooseByFullName(studentsList, COURSE2, sortedStudentList, mapByFullName);
 
     }
-
 
 }
 

@@ -39,18 +39,17 @@ public class Student {
         return marks;
     }
 
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof Student)) return false;
         Student student = (Student) o;
-        return Objects.equals(firstName, student.firstName) && Objects.equals(lastName, student.lastName);
+        return Objects.equals(firstName, student.firstName) && Objects.equals(lastName, student.lastName) && course == student.course && Objects.equals(marks, student.marks);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(firstName, lastName);
+        return Objects.hash(firstName, lastName, course, marks);
     }
 
     @Override
