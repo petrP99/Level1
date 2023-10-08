@@ -31,9 +31,9 @@ public class CinemaRunner {
         Cinema.addMovie(new Movie(55, 2002, "Jule", "Fantasy", 7.4));
 
         Cinema.printFullMap();
-        System.out.println(Cinema.getMoviesByYear(2019));
-        System.out.println(Cinema.getMoviesByYearAndMonth(1995, "December"));
-        System.out.println(Cinema.getMoviesByGenre("Fantasy"));
-        System.out.println(Cinema.getMoviesTop10());
+        System.out.println("Фильмы, в данном году: " + Cinema.getMoviesByYear(2019) + "\n");
+        System.out.println("Фильмы, в данном году и месяце: " + Cinema.getMoviesByYearAndMonth(1995, "December") + "\n");
+        System.out.println("Фильмы, в данном жанре: " + Cinema.getMoviesByGenre("Fantasy") + "\n");
+        System.out.println("Топ 10 фильмов: " + Cinema.getMoviesTop10() + "\n");
     }
 }

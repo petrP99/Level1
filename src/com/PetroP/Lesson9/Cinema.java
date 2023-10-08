@@ -7,15 +7,14 @@ public class Cinema {
     static HashMap<Integer, List<Movie>> moviesByYear = new LinkedHashMap<>();
 
     public static void addMovie(Movie movie) {
-        List<Movie> arrayList = new ArrayList<>();
-            arrayList.add(movie);
-            moviesByYear.put(movie.getYear(), arrayList);
-        }
+        List<Movie> movieList = new ArrayList<>();
+        movieList.add(movie);
+        moviesByYear.put(movie.getYear(), movieList);
+    }
 
     public static void printFullMap() {
         for (Map.Entry<Integer, List<Movie>> entry : moviesByYear.entrySet()) {
             System.out.println(entry.getKey() + " " + entry.getValue());
-
         }
     }
 
