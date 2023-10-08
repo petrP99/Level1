@@ -15,12 +15,8 @@ package com.PetroP.Lesson3;
 
 public class HouseRunner {
     public static void main(String[] args) {
-        House house1 = new House(5, 77);
         House house2 = new House(3, 25, new Floors(11, 5),
                 new Apartaments(99, 3), new Rooms(true));
-
-        house1.printAllInfo(house1);
-        System.out.println("\n");
         house2.printAllInfo(house2);
 
         //какой вариант правильней, создавать экземпляры класса внутри другого класса как в house1
